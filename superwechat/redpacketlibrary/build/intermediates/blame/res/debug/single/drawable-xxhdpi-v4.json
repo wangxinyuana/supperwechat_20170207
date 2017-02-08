@@ -208,12 +208,12 @@
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\res\\drawable-xxhdpi\\em_red_packet_chatfrom_bg_focused.9.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\rp_question_blue.png",
-        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\res\\drawable-xxhdpi\\rp_question_blue.png"
-    },
-    {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\rp_back_arrow_black.png",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\res\\drawable-xxhdpi\\rp_back_arrow_black.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\rp_question_blue.png",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\res\\drawable-xxhdpi\\rp_question_blue.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\rp_group_everyone.png",
@@ -232,12 +232,12 @@
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\res\\drawable-xxhdpi\\rp_change_details.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\rp_picture_vague.png",
-        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\res\\drawable-xxhdpi\\rp_picture_vague.png"
-    },
-    {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\rp_forget_pwd.png",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\res\\drawable-xxhdpi\\rp_forget_pwd.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\rp_picture_vague.png",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\res\\drawable-xxhdpi\\rp_picture_vague.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\rp_icon_best.png",
