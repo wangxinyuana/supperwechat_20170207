@@ -3,7 +3,6 @@ package cn.ucai.superwechat.parse;
 import android.app.Activity;
 import android.content.Context;
 
-import com.easemob.redpacketsdk.utils.RequestUtil;
 import com.hyphenate.EMValueCallBack;
 import com.hyphenate.chat.EMClient;
 
@@ -14,7 +13,6 @@ import cn.ucai.superwechat.net.OnCompleteListener;
 import cn.ucai.superwechat.utils.L;
 import cn.ucai.superwechat.utils.PreferenceManager;
 import cn.ucai.superwechat.utils.ResultUtils;
-import okhttp3.Request;
 
 import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.domain.User;
@@ -22,7 +20,10 @@ import com.hyphenate.easeui.domain.User;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.R.attr.value;
+
 public class UserProfileManager {
+    private static final String TAG=UserProfileManager.class.getSimpleName();
 
     /**
      * application context
@@ -155,6 +156,7 @@ public class UserProfileManager {
 
             @Override
             public void onSuccess(EaseUser value) {
+                L.e(TAG,"asyncGetCurrentUserInfo="+value);
                 if (value != null) {
                     setCurrentUserNick(value.getNick());
                     setCurrentUserAvatar(value.getAvatar());
@@ -174,7 +176,10 @@ public class UserProfileManager {
                 if (s != null) {
                     Result result = ResultUtils.getResultFromJson(s, User.class);
                     if (result != null && result.isRetMsg()) {
+                      User user = (User) result.getRetData();
                         //save user info to db
+                        setCurrentUserNick(user.getMUserNick());
+     //                   setCurrentUserAvatar(value.getAvatar());
                     }
                 }
             }
