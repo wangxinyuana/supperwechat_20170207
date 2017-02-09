@@ -37,6 +37,7 @@ import cn.ucai.superwechat.net.NetDao;
 import cn.ucai.superwechat.net.OnCompleteListener;
 import cn.ucai.superwechat.utils.CommonUtils;
 import cn.ucai.superwechat.utils.L;
+import cn.ucai.superwechat.utils.MD5;
 import cn.ucai.superwechat.utils.MFGT;
 import cn.ucai.superwechat.utils.ResultUtils;
 
@@ -57,8 +58,8 @@ public class RegisterActivity extends BaseActivity {
     ImageView mImgBack;
 
     String username;
-    String pwd;
     String usernick;
+    String pwd;
     ProgressDialog pd;
     @BindView(R.id.txt_title)
     TextView mTxtTitle;
@@ -97,25 +98,26 @@ public class RegisterActivity extends BaseActivity {
 
         if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(pwd)) {
             pd = new ProgressDialog(this);
-
             pd.setMessage(getResources().getString(R.string.Is_the_registered));
             pd.show();
-            registerAppServer();
+
+            registerAppSever();
+
         }
     }
 
-    private void registerAppServer() {
-        //注册自己的服务器账号
+    private void registerAppSever() {
+        //注册自己的服务器的账号
         NetDao.register(this, username, usernick, pwd, new OnCompleteListener<String>() {
             @Override
             public void onSuccess(String s) {
-                L.e(TAG, "s=" + s);
+                L.e(TAG, "register,s=" + s);
                 if (s != null) {
                     Result result = ResultUtils.getResultFromJson(s, null);
                     if (result != null) {
                         if (result.isRetMsg()) {
-                            //注册成功后调用环形的注册
-                            registerEmServer();
+                            //注册成功后调用环信的注册
+                            registerEMServer();
                         } else {
                             pd.dismiss();
                             if (result.getRetCode() == I.MSG_REGISTER_USERNAME_EXISTS) {
@@ -131,7 +133,6 @@ public class RegisterActivity extends BaseActivity {
                 } else {
                     pd.dismiss();
                     CommonUtils.showShortToast(R.string.Registration_failed);
-
                 }
             }
 
@@ -142,15 +143,14 @@ public class RegisterActivity extends BaseActivity {
                 L.e(TAG, "error=" + error);
             }
         });
-
     }
 
-    private void registerEmServer() {
+    private void registerEMServer() {
         new Thread(new Runnable() {
             public void run() {
                 try {
                     // call method in SDK
-                    EMClient.getInstance().createAccount(username, pwd);
+                    EMClient.getInstance().createAccount(username, MD5.getMessageDigest(pwd));
                     runOnUiThread(new Runnable() {
                         public void run() {
                             if (!RegisterActivity.this.isFinishing())
@@ -163,7 +163,7 @@ public class RegisterActivity extends BaseActivity {
                     });
                 } catch (final HyphenateException e) {
                     //取消注册
-                    unRegisterAppServer();
+                    unRegisterAppSever();
                     runOnUiThread(new Runnable() {
                         public void run() {
                             if (!RegisterActivity.this.isFinishing())
@@ -187,7 +187,7 @@ public class RegisterActivity extends BaseActivity {
         }).start();
     }
 
-    private void unRegisterAppServer() {
+    private void unRegisterAppSever() {
         NetDao.unRegister(this, username, new OnCompleteListener<String>() {
             @Override
             public void onSuccess(String result) {

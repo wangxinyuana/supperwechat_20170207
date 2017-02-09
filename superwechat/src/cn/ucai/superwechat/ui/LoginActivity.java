@@ -30,28 +30,21 @@ import android.widget.Toast;
 
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
-import com.hyphenate.easeui.domain.User;
 import com.hyphenate.easeui.utils.EaseCommonUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import cn.ucai.superwechat.I;
 import cn.ucai.superwechat.R;
 import cn.ucai.superwechat.SuperWeChatApplication;
 import cn.ucai.superwechat.SuperWeChatHelper;
 import cn.ucai.superwechat.db.SuperWeChatDBManager;
-import cn.ucai.superwechat.domain.Result;
-import cn.ucai.superwechat.net.NetDao;
-import cn.ucai.superwechat.net.OnCompleteListener;
-import cn.ucai.superwechat.utils.CommonUtils;
-import cn.ucai.superwechat.utils.L;
+import cn.ucai.superwechat.utils.MD5;
 import cn.ucai.superwechat.utils.MFGT;
-import cn.ucai.superwechat.utils.OkHttpUtils;
-import cn.ucai.superwechat.utils.ResultUtils;
 
 /**
  * Login screen
+ *
  */
 public class LoginActivity extends BaseActivity {
     private static final String TAG = LoginActivity.class.getSimpleName();
@@ -67,6 +60,7 @@ public class LoginActivity extends BaseActivity {
 
     private boolean progressShow;
     private boolean autoLogin = false;
+
     ProgressDialog pd;
     String currentUsername;
     String currentPassword;
@@ -89,6 +83,7 @@ public class LoginActivity extends BaseActivity {
         mTxtTitle.setText(R.string.login);
 
         setListener();
+
     }
 
     private void setListener() {
@@ -113,7 +108,6 @@ public class LoginActivity extends BaseActivity {
             mEtUsername.setText(SuperWeChatHelper.getInstance().getCurrentUsernName());
         }
     }
-
 
     public void login() {
         if (!EaseCommonUtils.isNetWorkConnected(this)) {
@@ -146,7 +140,8 @@ public class LoginActivity extends BaseActivity {
         pd.setMessage(getString(R.string.Is_landing));
         pd.show();
 
-        // After logout，the DemoDB may still be accessed due to async callback, so the DemoDB will be re-opened again.
+        // After logout，the DemoDB may still be accessed due to async callback,
+        // so the DemoDB will be re-opened again.
         // close it before login to make sure DemoDB not overlap
         SuperWeChatDBManager.getInstance().closeDB();
 
@@ -154,76 +149,19 @@ public class LoginActivity extends BaseActivity {
         SuperWeChatHelper.getInstance().setCurrentUserName(currentUsername);
 
         final long start = System.currentTimeMillis();
-        LoginAPPServer();
         loginEMServer();
-
-    }
-
-    private void LoginAPPServer() {
-        NetDao.login(this, currentUsername, currentPassword, new OkHttpUtils.OnCompleteListener<String>() {
-            @Override
-            public void onSuccess(String s) {
-                L.e(TAG, "login,s=" + s);
-                if (s != null) {
-                    Result result = ResultUtils.getResultFromJson(s, User.class);
-                    if (result != null) {
-                        loginEMServer();
-                    } else {
-                        if (result.getRetCode() == I.MSG_LOGIN_UNKNOW_USER) {
-                            CommonUtils.showShortToast("用户账号不存在");
-                        } else if (result.getRetCode() == I.MSG_LOGIN_ERROR_PASSWORD) {
-                            CommonUtils.showShortToast("用户账号错误");
-                        } else {
-                            CommonUtils.showShortToast(R.string.Login_failed);
-                        }
-                    }
-                } else {
-                    pd.dismiss();
-                    CommonUtils.showShortToast(R.string.login_failure_failed);
-                }
-            }
-
-            @Override
-            public void onError(String error) {
-                pd.dismiss();
-                CommonUtils.showShortToast(R.string.login_failure_failed);
-                L.e(TAG, "error=" + error);
-            }
-        });
     }
 
     private void loginEMServer() {
         // call login method
         Log.d(TAG, "EMClient.getInstance().login");
-        EMClient.getInstance().login(currentUsername, currentPassword, new EMCallBack() {
+        EMClient.getInstance().login(currentUsername, MD5.getMessageDigest(currentPassword), new EMCallBack() {
 
             @Override
             public void onSuccess() {
                 Log.d(TAG, "login: onSuccess");
 
-
-                // ** manually load all local groups and conversation
-                EMClient.getInstance().groupManager().loadAllGroups();
-                EMClient.getInstance().chatManager().loadAllConversations();
-
-                // update current user's display name for APNs
-                boolean updatenick = EMClient.getInstance().pushManager().updatePushNickname(
-                        SuperWeChatApplication.currentUserNick.trim());
-                if (!updatenick) {
-                    Log.e("LoginActivity", "update current user nick fail");
-                }
-
-                if (!LoginActivity.this.isFinishing() && pd.isShowing()) {
-                    pd.dismiss();
-                }
-                // get user's info (this should be get from App's server or 3rd party service)
-                SuperWeChatHelper.getInstance().getUserProfileManager().asyncGetCurrentUserInfo();
-
-                Intent intent = new Intent(LoginActivity.this,
-                        MainActivity.class);
-                startActivity(intent);
-
-                finish();
+                loginSuccess();
             }
 
             @Override
@@ -246,6 +184,31 @@ public class LoginActivity extends BaseActivity {
                 });
             }
         });
+    }
+
+    private void loginSuccess() {
+        // ** manually load all local groups and conversation
+        EMClient.getInstance().groupManager().loadAllGroups();
+        EMClient.getInstance().chatManager().loadAllConversations();
+
+        // update current user's display name for APNs
+        boolean updatenick = EMClient.getInstance().pushManager().updatePushNickname(
+                SuperWeChatApplication.currentUserNick.trim());
+        if (!updatenick) {
+            Log.e("LoginActivity", "update current user nick fail");
+        }
+
+        if (!LoginActivity.this.isFinishing() && pd.isShowing()) {
+            pd.dismiss();
+        }
+        // get user's info (this should be get from App's server or 3rd party service)
+        SuperWeChatHelper.getInstance().getUserProfileManager().asyncGetCurrentUserInfo(this);
+
+        Intent intent = new Intent(LoginActivity.this,
+                MainActivity.class);
+        startActivity(intent);
+
+        finish();
     }
 
 
