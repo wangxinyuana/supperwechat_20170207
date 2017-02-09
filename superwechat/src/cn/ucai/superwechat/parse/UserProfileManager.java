@@ -5,8 +5,14 @@ import android.content.Context;
 
 import com.hyphenate.EMValueCallBack;
 import com.hyphenate.chat.EMClient;
+import com.hyphenate.easeui.domain.EaseUser;
+import com.hyphenate.easeui.domain.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import cn.ucai.superwechat.SuperWeChatHelper;
+import cn.ucai.superwechat.SuperWeChatHelper.DataSyncListener;
 import cn.ucai.superwechat.domain.Result;
 import cn.ucai.superwechat.net.NetDao;
 import cn.ucai.superwechat.net.OnCompleteListener;
@@ -14,16 +20,8 @@ import cn.ucai.superwechat.utils.L;
 import cn.ucai.superwechat.utils.PreferenceManager;
 import cn.ucai.superwechat.utils.ResultUtils;
 
-import com.hyphenate.easeui.domain.EaseUser;
-import com.hyphenate.easeui.domain.User;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static android.R.attr.value;
-
 public class UserProfileManager {
-    private static final String TAG=UserProfileManager.class.getSimpleName();
+    private static final String TAG = UserProfileManager.class.getSimpleName();
 
     /**
      * application context
@@ -39,7 +37,7 @@ public class UserProfileManager {
     /**
      * HuanXin sync contact nick and avatar listener
      */
-    private List<SuperWeChatHelper.DataSyncListener> syncContactInfosListeners;
+    private List<DataSyncListener> syncContactInfosListeners;
 
     private boolean isSyncingContactInfosWithServer = false;
 
@@ -53,12 +51,12 @@ public class UserProfileManager {
             return true;
         }
         ParseManager.getInstance().onInit(context);
-        syncContactInfosListeners = new ArrayList<SuperWeChatHelper.DataSyncListener>();
+        syncContactInfosListeners = new ArrayList<DataSyncListener>();
         sdkInited = true;
         return true;
     }
 
-    public void addSyncContactInfoListener(SuperWeChatHelper.DataSyncListener listener) {
+    public void addSyncContactInfoListener(DataSyncListener listener) {
         if (listener == null) {
             return;
         }
@@ -67,7 +65,7 @@ public class UserProfileManager {
         }
     }
 
-    public void removeSyncContactInfoListener(SuperWeChatHelper.DataSyncListener listener) {
+    public void removeSyncContactInfoListener(DataSyncListener listener) {
         if (listener == null) {
             return;
         }
@@ -109,7 +107,7 @@ public class UserProfileManager {
     }
 
     public void notifyContactInfosSyncListener(boolean success) {
-        for (SuperWeChatHelper.DataSyncListener listener : syncContactInfosListeners) {
+        for (DataSyncListener listener : syncContactInfosListeners) {
             listener.onSyncComplete(success);
         }
     }
@@ -156,10 +154,10 @@ public class UserProfileManager {
 
             @Override
             public void onSuccess(EaseUser value) {
-                L.e(TAG,"asyncGetCurrentUserInfo="+value);
-                if (value != null) {
-                    setCurrentUserNick(value.getNick());
-                    setCurrentUserAvatar(value.getAvatar());
+                L.e(TAG,"asyncGetCurrentUserInfo,value="+value);
+                if(value != null){
+//    				setCurrentUserNick(value.getNick());
+//    				setCurrentUserAvatar(value.getAvatar());
                 }
             }
 
@@ -168,34 +166,36 @@ public class UserProfileManager {
 
             }
         });
-        L.e("UserProfileManager", "asnycGetCurrentInfo,username=" + EMClient.getInstance().getCurrentUser());
+        L.e("UserProfileManager","asyncGetCurrentUserInfo,username="+EMClient.getInstance().getCurrentUser());
         NetDao.getUserInfoByUsername(activity, EMClient.getInstance().getCurrentUser(), new OnCompleteListener<String>() {
             @Override
             public void onSuccess(String s) {
                 L.e("UserProfileManager","s="+s);
-                if (s != null) {
+                if (s!=null){
                     Result result = ResultUtils.getResultFromJson(s, User.class);
-                    if (result != null && result.isRetMsg()) {
-                      User user = (User) result.getRetData();
-                        //save user info to db
-                        setCurrentUserNick(user.getMUserNick());
-     //                   setCurrentUserAvatar(value.getAvatar());
+                    if (result!=null && result.isRetMsg()){
+                        User user = (User) result.getRetData();
+                        L.e(TAG,"user="+user);
+                        if (user!=null) {
+                            //save user info to db
+                            SuperWeChatHelper.getInstance().saveAppContact(user);
+                            setCurrentUserNick(user.getMUserNick());
+                            setCurrentUserAvatar(user.getAvatar());
+                        }
                     }
                 }
             }
 
             @Override
             public void onError(String error) {
-L.e("UserProfileManager","error="+error);
+                L.e("UserProfileManager","error="+error);
             }
         });
 
     }
-
-    public void asyncGetUserInfo(final String username, final EMValueCallBack<EaseUser> callback) {
+    public void asyncGetUserInfo(final String username,final EMValueCallBack<EaseUser> callback){
         ParseManager.getInstance().asyncGetUserInfo(username, callback);
     }
-
     private void setCurrentUserNick(String nickname) {
         getCurrentUserInfo().setNick(nickname);
         PreferenceManager.getInstance().setCurrentUserNick(nickname);
