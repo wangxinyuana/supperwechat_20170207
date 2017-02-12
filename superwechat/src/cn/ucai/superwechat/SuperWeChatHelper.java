@@ -63,6 +63,8 @@ import cn.ucai.superwechat.ui.VideoCallActivity;
 import cn.ucai.superwechat.ui.VoiceCallActivity;
 import cn.ucai.superwechat.utils.PreferenceManager;
 
+import static com.hyphenate.easeui.utils.EaseUserUtils.getUserInfo;
+
 public class SuperWeChatHelper {
     /**
      * data sync listener
@@ -265,6 +267,11 @@ public class SuperWeChatHelper {
             @Override
             public EaseUser getUser(String username) {
                 return getUserInfo(username);
+            }
+
+            @Override
+            public User getAppUser(String username) {
+                return getAppUserInfo(username);
             }
         });
 
@@ -748,21 +755,17 @@ public class SuperWeChatHelper {
         appContext.startActivity(intent);
     }
 
-    private EaseUser getUserInfo(String username){
+    private User getAppUserInfo(String username){
         // To get instance of EaseUser, here we get it from the user list in memory
         // You'd better cache it if you get it from your server
-        EaseUser user = null;
-        if(username.equals(EMClient.getInstance().getCurrentUser()))
-            return getUserProfileManager().getCurrentUserInfo();
-        user = getContactList().get(username);
-        if(user == null && getRobotList() != null){
-            user = getRobotList().get(username);
-        }
+        User user = null;
+
+        user = getAppContactList().get(username);
 
         // if user is not in your contacts, set inital letter for him/her
         if(user == null){
-            user = new EaseUser(username);
-            EaseCommonUtils.setUserInitialLetter(user);
+            user = new User(username);
+            EaseCommonUtils.setAppUserInitialLetter(user);
         }
         return user;
     }

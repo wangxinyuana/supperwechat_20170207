@@ -136,17 +136,14 @@ public class MainActivity extends BaseActivity implements DMTabHost.OnCheckedCha
     private void initFragment() {
         conversationListFragment = new ConversationListFragment();
         contactListFragment = new ContactListFragment();
-        SettingsFragment settingFragment = new SettingsFragment();
-        fragments = new Fragment[]{conversationListFragment, contactListFragment, settingFragment};
+        ProfileFragment profileFragment = new ProfileFragment();
 
-//		getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, conversationListFragment)
-//				.add(R.id.fragment_container, contactListFragment).hide(contactListFragment).show(conversationListFragment)
-//				.commit();
+
         adapter = new MainTabAdapter(getSupportFragmentManager());
         adapter.addFragment(conversationListFragment, "微信");
         adapter.addFragment(contactListFragment, "通信录");
         adapter.addFragment(new DiscoverFragment(), "发现");
-        adapter.addFragment(settingFragment, "我");
+        adapter.addFragment(profileFragment, "我");
 //滑动
         mLayoutViewpage.setAdapter(adapter);
         mLayoutTabhost.setChecked(0);
