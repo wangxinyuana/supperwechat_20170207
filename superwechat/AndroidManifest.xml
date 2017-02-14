@@ -45,8 +45,8 @@
         android:protectionLevel="signatureOrSystem"/>
 
     <uses-permission android:name="com.hyphenate.chatuidemo.permission.MIPUSH_RECEIVE"/>
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.apps.photos.permission.GOOGLE_PHOTOS"/>
 
     <application
         android:name=".SuperWeChatApplication"
@@ -84,7 +84,7 @@
             android:name=".ui.SettingsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/horizontal_slide"/>
-            android:windowSoftInputMode="adjustResize|stateVisible"设置输入法
+        android:windowSoftInputMode="adjustResize|stateVisible"设置输入法
 
         <!-- 注册 -->
         <activity
@@ -504,6 +504,8 @@
             android:value="3ecea51f560650b1ed8a4b99808f52e8"/>
 
         <activity android:name=".ui.GuideActivity">
+        </activity>
+        <activity android:name=".ui.FirentProfileActivity">
         </activity>
     </application>
 
