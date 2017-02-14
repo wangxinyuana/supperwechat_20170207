@@ -19,7 +19,7 @@ import cn.ucai.superwechat.SuperWeChatHelper;
 import cn.ucai.superwechat.utils.L;
 import cn.ucai.superwechat.utils.MFGT;
 
-public class FirentProfileActivity extends Activity {
+public class FirentProfileActivity extends BaseActivity {
     private static final String TAG = FirentProfileActivity.class.getSimpleName();
     @BindView(R.id.img_back)
     ImageView mImgBack;
@@ -38,7 +38,7 @@ public class FirentProfileActivity extends Activity {
     Button mBtnSendVideo;
     @BindView(R.id.btn_add_contact)
     Button mBtnAddContact;
-    User user=null;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +46,14 @@ public class FirentProfileActivity extends Activity {
         setContentView(R.layout.activity_firent_profile);
         ButterKnife.bind(this);
         initData();
+
     }
+
 
     private void initData() {
         mImgBack.setVisibility(View.VISIBLE);
         mTxtTitle.setVisibility(View.VISIBLE);
-        mTxtTitle.setText(R.string.userinfo_txt_profile);
+        mTxtTitle.setText("详细资料");
         user = (User) getIntent().getSerializableExtra(I.User.USER_NAME);
         L.e(TAG, "user=" + user);
         if (user != null) {
@@ -74,17 +76,22 @@ public class FirentProfileActivity extends Activity {
     }
 
     private boolean isFirent() {
-        User u=SuperWeChatHelper.getInstance().getAppContactList().get(user.getMUserName());
-    if (u==null){
-        return  false;
-    }else {
-        SuperWeChatHelper.getInstance().saveAppContact(user);
-        return true;
-    }
+        User u = SuperWeChatHelper.getInstance().getAppContactList().get(user.getMUserName());
+        if (u == null) {
+            return false;
+        } else {
+            SuperWeChatHelper.getInstance().saveAppContact(user);
+            return true;
+        }
     }
 
     @OnClick(R.id.img_back)
-    public void onClick() {
+    public void imgBack() {
         MFGT.finish(this);
+    }
+
+    @OnClick(R.id.btn_add_contact)
+    public void sendAddContactMsg() {
+        MFGT.gotoAddFirent(this,user.getMUserName());
     }
 }
