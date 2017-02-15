@@ -472,7 +472,7 @@ public class MainActivity extends BaseActivity implements DMTabHost.OnCheckedCha
             public void run() {
                 int count = getUnreadAddressCountTotal();
                 L.e(TAG,"updateUnreadAddressLable,count="+count);
-                if (count > 1) {
+                if (count >1) {
                     mLayoutTabhost.setUnreadCount(1, count);
                 }else if(count==1){
                     mLayoutTabhost.setHasNew(1, true);
