@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 import com.easemob.redpacketsdk.constant.RPConstant;
@@ -50,8 +49,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import cn.ucai.superwechat.db.SuperWeChatDBManager;
 import cn.ucai.superwechat.db.InviteMessgeDao;
+import cn.ucai.superwechat.db.SuperWeChatDBManager;
 import cn.ucai.superwechat.db.UserDao;
 import cn.ucai.superwechat.domain.EmojiconExampleGroupData;
 import cn.ucai.superwechat.domain.InviteMessage;
@@ -61,16 +60,13 @@ import cn.ucai.superwechat.net.NetDao;
 import cn.ucai.superwechat.net.OnCompleteListener;
 import cn.ucai.superwechat.parse.UserProfileManager;
 import cn.ucai.superwechat.receiver.CallReceiver;
-import cn.ucai.superwechat.ui.AddContactActivity;
 import cn.ucai.superwechat.ui.ChatActivity;
 import cn.ucai.superwechat.ui.MainActivity;
 import cn.ucai.superwechat.ui.VideoCallActivity;
 import cn.ucai.superwechat.ui.VoiceCallActivity;
-import cn.ucai.superwechat.utils.MFGT;
+import cn.ucai.superwechat.utils.L;
 import cn.ucai.superwechat.utils.PreferenceManager;
 import cn.ucai.superwechat.utils.ResultUtils;
-
-import static com.hyphenate.easeui.utils.EaseUserUtils.getUserInfo;
 
 public class SuperWeChatHelper {
     /**
@@ -666,6 +662,7 @@ public class SuperWeChatHelper {
 
         @Override
         public void onContactAdded(String username) {
+            L.e(TAG,"onContactAdded...username="+username);
             // save contact
             Map<String, EaseUser> localUsers = getContactList();
             Map<String, EaseUser> toAddUsers = new HashMap<String, EaseUser>();
@@ -682,6 +679,7 @@ public class SuperWeChatHelper {
 
         @Override
         public void onContactDeleted(String username) {
+            L.e(TAG,"onContactDeleted...username="+username);
             Map<String, EaseUser> localUsers = SuperWeChatHelper.getInstance().getContactList();
             localUsers.remove(username);
             userDao.deleteContact(username);
@@ -692,6 +690,7 @@ public class SuperWeChatHelper {
 
         @Override
         public void onContactInvited(String username, String reason) {
+            L.e(TAG,"onContactInvited...username="+username);
             List<InviteMessage> msgs = inviteMessgeDao.getMessagesList();
 
             for (InviteMessage inviteMessage : msgs) {
@@ -713,55 +712,26 @@ public class SuperWeChatHelper {
 
         @Override
         public void onFriendRequestAccepted(final String username) {
+            L.e(TAG,"onFriendRequestAccepted...username="+username);
             List<InviteMessage> msgs = inviteMessgeDao.getMessagesList();
             for (InviteMessage inviteMessage : msgs) {
                 if (inviteMessage.getFrom().equals(username)) {
                     return;
                 }
             }
-
-            NetDao.getUserInfoByUsername(appContext, username, new OnCompleteListener<String>() {
-                @Override
-                public void onSuccess(String s) {
-                    // save invitation as message
-                    InviteMessage msg = new InviteMessage();
-                    msg.setFrom(username);
-                    msg.setTime(System.currentTimeMillis());
-                    Log.d(TAG, username + "accept your request");
-                    msg.setStatus(InviteMessage.InviteMesageStatus.BEAGREED);
-                    if (s != null) {
-                        Result result = ResultUtils.getResultFromJson(s, User.class);
-                        if (result != null) {
-                            if (result.isRetMsg()) {
-                                User user= (User) result.getRetData();
-                                if(user!=null){
-                                    msg.setUsernick(user.getMUserNick());
-                                    msg.setAvatarSuffix(user.getMAvatarSuffix());
-                                    msg.setAvatarTime(user.getMAvatarLastUpdateTime());
-                                }
-                            }
-                        }
-                    }
-                    notifyNewInviteMessage(msg);
-                    broadcastManager.sendBroadcast(new Intent(Constant.ACTION_CONTACT_CHANAGED));
-
-                }
-
-                @Override
-                public void onError(String error) {
-                    // save invitation as message
-                    InviteMessage msg = new InviteMessage();
-                    msg.setFrom(username);
-                    msg.setTime(System.currentTimeMillis());
-                    Log.d(TAG, username + "accept your request");
-                    msg.setStatus(InviteMessage.InviteMesageStatus.BEAGREED);
-                    notifyNewInviteMessage(msg);
-                }
-            });
+            // save invitation as message
+            InviteMessage msg = new InviteMessage();
+            msg.setFrom(username);
+            msg.setTime(System.currentTimeMillis());
+            Log.d(TAG, username + "accept your request");
+            msg.setStatus(InviteMessage.InviteMesageStatus.BEAGREED);
+            notifyNewInviteMessage(msg);
+            broadcastManager.sendBroadcast(new Intent(Constant.ACTION_CONTACT_CHANAGED));
         }
 
         @Override
         public void onFriendRequestDeclined(String username) {
+            L.e(TAG,"onFriendRequestDeclined...username="+username);
             // your request was refused
             Log.d(username, username + " refused to your request");
         }
@@ -771,11 +741,34 @@ public class SuperWeChatHelper {
      * save and notify invitation message
      * @param msg
      */
-    private void notifyNewInviteMessage(InviteMessage msg){
+    private void notifyNewInviteMessage(final InviteMessage msg){
+        L.e(TAG,"notifyNewInviteMessage...");
         if(inviteMessgeDao == null){
             inviteMessgeDao = new InviteMessgeDao(appContext);
         }
-        inviteMessgeDao.saveMessage(msg);
+        NetDao.getUserInfoByUsername(appContext, msg.getFrom(), new OnCompleteListener<String>() {
+            public void onSuccess(String s) {
+                if (s!=null){
+                    Result result = ResultUtils.getResultFromJson(s, User.class);
+                    if (result!=null){
+                        if (result.isRetMsg()){
+                            User user = (User) result.getRetData();
+                            if (user!=null){
+                                msg.setUsernick(user.getMUserNick());
+                                msg.setAvatarSuffix(user.getMAvatarSuffix());
+                                msg.setAvatarTime(user.getMAvatarLastUpdateTime());
+                            }
+                        }
+                    }
+                }
+                inviteMessgeDao.saveMessage(msg);
+            }
+
+            @Override
+            public void onError(String error) {
+                inviteMessgeDao.saveMessage(msg);
+            }
+        });
         //increase the unread message count
         inviteMessgeDao.saveUnreadMessageCount(1);
         // notify there is new message
@@ -793,11 +786,29 @@ public class SuperWeChatHelper {
         appContext.startActivity(intent);
     }
 
+    private EaseUser getUserInfo(String username){
+        // To get instance of EaseUser, here we get it from the user list in memory
+        // You'd better cache it if you get it from your server
+        EaseUser user = null;
+        if(username.equals(EMClient.getInstance().getCurrentUser()))
+            return getUserProfileManager().getCurrentUserInfo();
+        user = getContactList().get(username);
+        if(user == null && getRobotList() != null){
+            user = getRobotList().get(username);
+        }
+
+        // if user is not in your contacts, set inital letter for him/her
+        if(user == null){
+            user = new EaseUser(username);
+            EaseCommonUtils.setUserInitialLetter(user);
+        }
+        return user;
+    }
+
     private User getAppUserInfo(String username){
         // To get instance of EaseUser, here we get it from the user list in memory
         // You'd better cache it if you get it from your server
         User user = null;
-
         user = getAppContactList().get(username);
 
         // if user is not in your contacts, set inital letter for him/her

@@ -68,12 +68,17 @@ public class MFGT {
 
     public static void gotoFirent(Activity activity, User user) {
         startActivity(activity,new Intent(activity,FirentProfileActivity.class)
-        .putExtra(I.User.USER_NAME,user));
+        .putExtra(I.User.TABLE_NAME,user));
     }
+
+    public static void gotoFirent(Activity activity,String username) {
+        startActivity(activity,new Intent(activity,FirentProfileActivity.class)
+        .putExtra(I.User.USER_NAME,username));
+    }
+
 
     public static void gotoAddFirent(Activity activity,String username) {
         startActivity(activity,new Intent(activity,AddFirentActivity.class)
         .putExtra(I.User.USER_NAME,username));
-
     }
 }
