@@ -1,6 +1,5 @@
 package cn.ucai.superwechat.net;
 
-import android.app.Activity;
 import android.content.Context;
 
 import java.io.File;
@@ -53,8 +52,9 @@ public class NetDao {
                 .targetClass(String.class)
                 .execute(listener);
     }
+
     public static void updateUsernick(Context context, String username, String usernick,
-                                      OkHttpUtils.OnCompleteListener<String>listener){
+                                      OnCompleteListener<String> listener){
         OkHttpUtils<String> utils = new OkHttpUtils<>(context);
         utils.setRequestUrl(I.REQUEST_UPDATE_USER_NICK)
                 .addParam(I.User.USER_NAME,username)
@@ -62,8 +62,9 @@ public class NetDao {
                 .targetClass(String.class)
                 .execute(listener);
     }
+
     public static void uploadUserAvatar(Context context, String username, File file,
-                                        OnCompleteListener<String>listener){
+                                        OnCompleteListener<String> listener){
         OkHttpUtils<String> utils = new OkHttpUtils<>(context);
         utils.setRequestUrl(I.REQUEST_UPDATE_AVATAR)
                 .addParam(I.NAME_OR_HXID,username)
@@ -73,17 +74,21 @@ public class NetDao {
                 .post()
                 .execute(listener);
     }
-public static void addContact(Context context, String username, String cname,
-                              OkHttpUtils.OnCompleteListener<String>listener){
-    OkHttpUtils<String> utils = new OkHttpUtils<>(context);
-    utils.setRequestUrl(I.REQUEST_ADD_CONTACT)
-            .addParam(I.Contact.USER_NAME,username)
-            .addParam(I.Contact.CU_NAME,cname)
-            .targetClass(String.class)
-            .execute(listener);
-}
 
-
-    public static void addContact(Context appContext, String currentUser, String username) {
+    public static void addContact(Context context, String username, String cname,
+                                  OnCompleteListener<String> listener){
+        OkHttpUtils<String> utils = new OkHttpUtils<>(context);
+        utils.setRequestUrl(I.REQUEST_ADD_CONTACT)
+                .addParam(I.Contact.USER_NAME,username)
+                .addParam(I.Contact.CU_NAME,cname)
+                .targetClass(String.class)
+                .execute(listener);
+    }
+    public static void loadContact(Context context,String username,OnCompleteListener<String>listener){
+        OkHttpUtils<String> utils = new OkHttpUtils<>(context);
+        utils.setRequestUrl(I.REQUEST_DOWNLOAD_CONTACT_ALL_LIST)
+                .addParam(I.Contact.USER_NAME,username)
+                .targetClass(String.class)
+                .execute(listener);
     }
 }
