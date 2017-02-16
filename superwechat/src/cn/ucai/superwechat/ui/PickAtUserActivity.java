@@ -33,7 +33,7 @@ public class PickAtUserActivity extends BaseActivity{
     protected void onCreate(Bundle arg0) {
         super.onCreate(arg0);
         setContentView(R.layout.activity_pick_at_user);
-        
+
         String groupId = getIntent().getStringExtra("groupId");
         EMGroup group = EMClient.getInstance().groupManager().getGroup(groupId);
 
@@ -43,7 +43,7 @@ public class PickAtUserActivity extends BaseActivity{
         List<String> members = group.getMembers();
         List<User> userList = new ArrayList<User>();
         for(String username : members){
-           User user = EaseUserUtils.getAppUserInfo(username);
+            User user = EaseUserUtils.getAppUserInfo(username);
             userList.add(user);
         }
 

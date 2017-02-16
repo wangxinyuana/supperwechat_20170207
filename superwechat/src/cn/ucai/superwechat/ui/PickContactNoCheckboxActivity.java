@@ -21,12 +21,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-import cn.ucai.superwechat.Constant;
-import cn.ucai.superwechat.SuperWeChatHelper;
-import cn.ucai.superwechat.R;
-
 import com.hyphenate.easeui.adapter.EaseContactAdapter;
-import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.domain.User;
 import com.hyphenate.easeui.widget.EaseSidebar;
 
@@ -36,6 +31,10 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import cn.ucai.superwechat.Constant;
+import cn.ucai.superwechat.R;
+import cn.ucai.superwechat.SuperWeChatHelper;
 
 @SuppressLint("Registered")
 public class PickContactNoCheckboxActivity extends BaseActivity {
@@ -84,23 +83,23 @@ public class PickContactNoCheckboxActivity extends BaseActivity {
 				contactList.add(entry.getValue());
 		}
 		// sort
-        Collections.sort(contactList, new Comparator<User>() {
+		Collections.sort(contactList, new Comparator<User>() {
 
-            @Override
-            public int compare(User lhs, User rhs) {
-                if(lhs.getInitialLetter().equals(rhs.getInitialLetter())){
-                    return lhs.getMUserNick().compareTo(rhs.getMUserNick());
-                }else{
-                    if("#".equals(lhs.getInitialLetter())){
-                        return 1;
-                    }else if("#".equals(rhs.getInitialLetter())){
-                        return -1;
-                    }
-                    return lhs.getInitialLetter().compareTo(rhs.getInitialLetter());
-                }
-                
-            }
-        });
+			@Override
+			public int compare(User lhs, User rhs) {
+				if(lhs.getInitialLetter().equals(rhs.getInitialLetter())){
+					return lhs.getMUserNick().compareTo(rhs.getMUserNick());
+				}else{
+					if("#".equals(lhs.getInitialLetter())){
+						return 1;
+					}else if("#".equals(rhs.getInitialLetter())){
+						return -1;
+					}
+					return lhs.getInitialLetter().compareTo(rhs.getInitialLetter());
+				}
+
+			}
+		});
 	}
 
 }
