@@ -455,12 +455,13 @@ public class MainActivity extends BaseActivity implements DMTabHost.OnCheckedCha
      */
     public void updateUnreadLabel() {
         int count = getUnreadMsgCountTotal();
-        if (count > 0) {
+       // if (count > 0) {
             mLayoutTabhost.setUnreadCount(0,count);
-        } else {
-            mLayoutTabhost.setHasNew(0,false);
         }
-    }
+//        else {
+//            mLayoutTabhost.setHasNew(0,false);
+//        }
+   //  }
 
     /**
      * update the total unread count
