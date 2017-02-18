@@ -1,5 +1,7 @@
 package com.hyphenate.easeui.domain;
 
+import com.hyphenate.easeui.utils.EaseCommonUtils;
+
 import java.io.Serializable;
 
 public class User implements Serializable {
@@ -77,7 +79,9 @@ public class User implements Serializable {
 	}
 
 	public String getMAvatarLastUpdateTime() {
-		return mavatarLastUpdateTime;
+		//判断上次最后提交，为空则返回当前毫秒数，否则为mavatarLastUpdateTime;
+		return mavatarLastUpdateTime==null?
+				String.valueOf(System.currentTimeMillis()):mavatarLastUpdateTime;
 	}
 
 	public void setMAvatarLastUpdateTime(String mavatarLastUpdateTime) {
@@ -120,7 +124,7 @@ public class User implements Serializable {
 
 	public String getInitialLetter() {
 		if(initialLetter == null){
-//			EaseCommonUtils.setAppUserInitialLetter(this);
+			EaseCommonUtils.setAppUserInitialLetter(this);
 		}
 		return initialLetter;
 	}
