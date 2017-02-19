@@ -113,6 +113,7 @@ public class NetDao {
                 .addParam(I.Group.DESCRIPTION,group.getDescription())
                 .addParam(I.Group.OWNER,group.getOwner())
                 .addParam(I.Group.IS_PUBLIC,String.valueOf(group.isAllowInvites()))
+                .addFile2(file)
                 .targetClass(String.class)
               //  .addFile2(file)
                 .post()
