@@ -2,9 +2,13 @@ package cn.ucai.superwechat.net;
 
 import android.content.Context;
 
+import com.hyphenate.chat.EMGroup;
+
 import java.io.File;
+import java.security.acl.Group;
 
 import cn.ucai.superwechat.I;
+import cn.ucai.superwechat.ui.NewGroupActivity;
 import cn.ucai.superwechat.utils.MD5;
 import cn.ucai.superwechat.utils.OkHttpUtils;
 
@@ -93,11 +97,27 @@ public class NetDao {
     }
     public static void removeContact(Context context, String username, String cname,
                                OnCompleteListener<String> listener){
-        OkHttpUtils<String> utils = new OkHttpUtils<>(context);
+        OkHttpUtils<String> utils = new OkHttpUtils<String>(context);
         utils.setRequestUrl(I.REQUEST_DELETE_CONTACT)
                 .addParam(I.Contact.USER_NAME,username)
                 .addParam(I.Contact.CU_NAME,cname)
                 .targetClass(String.class)
                 .execute(listener);
     }
+
+    public static void createGroup(Context context, EMGroup group, File file, OnCompleteListener listener) {
+        OkHttpUtils<String> utils=new OkHttpUtils<>(context);
+        utils.setRequestUrl(I.REQUEST_CREATE_GROUP)
+                .addParam(I.Group.HX_ID,group.getGroupId())
+                .addParam(I.Group.NAME,group.getGroupName())
+                .addParam(I.Group.DESCRIPTION,group.getDescription())
+                .addParam(I.Group.OWNER,group.getOwner())
+                .addParam(I.Group.IS_PUBLIC,String.valueOf(group.isAllowInvites()))
+                .targetClass(String.class)
+              //  .addFile2(file)
+                .post()
+                .execute(listener);
+    }
+
+
 }
