@@ -80,8 +80,7 @@ public class User implements Serializable {
 
 	public String getMAvatarLastUpdateTime() {
 		//判断上次最后提交，为空则返回当前毫秒数，否则为mavatarLastUpdateTime;
-		return mavatarLastUpdateTime==null?
-				String.valueOf(System.currentTimeMillis()):mavatarLastUpdateTime;
+		return mavatarLastUpdateTime==null?"":mavatarLastUpdateTime;
 	}
 
 	public void setMAvatarLastUpdateTime(String mavatarLastUpdateTime) {
