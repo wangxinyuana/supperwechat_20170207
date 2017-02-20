@@ -146,9 +146,15 @@ public class InviteMessage {
         /**remote user declined your invitation**/
 		GROUPINVITATION_DECLINED
 	}
-	public String getAvatar(){
-		String path="http://101.251.196.90:8000/SuperWeChatServerV2.0/downloadAvatar?name_or_hxid="+getFrom()+"&avatarType=user_avatar&m_avatar_suffix="+getAvatarSuffix()+"&updatetime="+getTime();
-		return path;
+	public String getAvatar() {
+		if (groupId == null) {
+			return "http://101.251.196.90:8000/SuperWeChatServerV2.0/downloadAvatar?name_or_hxid="
+					+ getFrom() + "&avatarType=user_avatar&m_avatar_suffix="
+					+ getAvatarSuffix() + "&updatetime=" + getAvatarTime();
+		} else {
+			return "http://101.251.196.90:8000/SuperWeChatServerV2.0/downloadAvatar?name_or_hxid="
+					+ groupId+ "&avatarType=group_icon&m_avatar_suffix=.jpg";
+		}
 	}
 
 	@Override
