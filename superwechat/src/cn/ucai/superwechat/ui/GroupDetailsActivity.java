@@ -53,6 +53,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.ucai.superwechat.R;
+import cn.ucai.superwechat.utils.MFGT;
 
 public class GroupDetailsActivity extends BaseActivity implements OnClickListener {
 	private static final String TAG = "GroupDetailsActivity";
@@ -705,7 +706,7 @@ public class GroupDetailsActivity extends BaseActivity implements OnClickListene
 							deleteMembersFromGroup(username);
 						} else {
 							// 正常情况下点击user，可以进入用户详情或者聊天页面等等
-
+							MFGT.gotoFirent(GroupDetailsActivity.this,username);
 						}
 					}
 
