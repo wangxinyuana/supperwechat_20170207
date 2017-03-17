@@ -386,6 +386,7 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
                 break;
         }
     }
+    //加个保护防止当前登录名为空
     @Override
     public void onResume(){
         super.onResume();

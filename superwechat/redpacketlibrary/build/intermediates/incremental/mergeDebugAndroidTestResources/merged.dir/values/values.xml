@@ -43,6 +43,7 @@
         <item>膜拜大神Orz</item>
         <item>约起来吧！</item>
     </string-array>
+    <color name="black2">#232325</color>
     <color name="black_deep">#FF000000</color>
     <color name="bottom_bar_normal_bg">#2D2F31</color>
     <color name="bottom_text_color_normal">#ffffff</color>
@@ -113,7 +114,7 @@
     <color name="rp_title_red">#e8584d</color>
     <color name="rp_title_transparent_color">#90D3D97A</color>
     <color name="rp_top_red_color">#D24F44</color>
-    <color name="top_bar_normal_bg">#00acff</color>
+    <color name="top_bar_normal_bg">@color/black2</color>
     <color name="voip_interface_text_color">#bababa</color>
     <declare-styleable name="EaseChatExtendMenu"><attr format="integer" name="numColumns"/></declare-styleable>
     <declare-styleable name="EaseChatMessageList"><attr format="reference" name="msgListMyBubbleBackground"/><attr format="reference" name="msgListOtherBubbleBackground"/><attr format="boolean" name="msgListShowUserAvatar"/><attr format="boolean" name="msgListShowUserNick"/></declare-styleable>

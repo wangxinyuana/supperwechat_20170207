@@ -84,6 +84,10 @@
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\res\\drawable\\em_transfer_chatfrom_bg.xml"
     },
     {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\default_hd_avatar.png",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\drawable\\default_hd_avatar.png"
+    },
+    {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\res\\merged\\debug\\drawable\\rp_open_packet_shape_corner.xml",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\res\\drawable\\rp_open_packet_shape_corner.xml"
     },

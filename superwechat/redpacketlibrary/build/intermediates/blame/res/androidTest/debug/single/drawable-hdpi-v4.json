@@ -128,12 +128,12 @@
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\drawable-hdpi-v4\\ee_8.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_location_msg.9.png",
-        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\drawable-hdpi-v4\\ease_location_msg.9.png"
-    },
-    {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_mm_listitem_grey_normal.9.png",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\drawable-hdpi-v4\\ease_mm_listitem_grey_normal.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_location_msg.9.png",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\drawable-hdpi-v4\\ease_location_msg.9.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_type_select_btn_pressed.png",

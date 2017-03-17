@@ -200,6 +200,10 @@
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\drawable\\ease_chat_press_speak_btn.xml"
     },
     {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\default_hd_avatar.png",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\drawable\\default_hd_avatar.png"
+    },
+    {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\rp_btn_blue_pressed_shape.xml",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\redpacketlibrary\\build\\intermediates\\bundles\\debug\\res\\drawable\\rp_btn_blue_pressed_shape.xml"
     },

@@ -160,6 +160,10 @@
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\layout\\ease_row_received_message.xml"
     },
     {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\layout\\activity_firent_profile.xml",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\layout\\activity_firent_profile.xml"
+    },
+    {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\layout\\activity_guide.xml",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\layout\\activity_guide.xml"
     },
@@ -664,6 +668,10 @@
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\superwechat\\redpacketlibrary\\unspecified\\res\\layout\\rp_details_list_header.xml"
     },
     {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\layout\\activity_add_firent.xml",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\layout\\activity_add_firent.xml"
+    },
+    {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\select_dialog_item_material.xml"
     },
@@ -770,6 +778,10 @@
     {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\layout\\ease_search_bar_with_padding.xml",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\layout\\ease_search_bar_with_padding.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_profile.xml",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\layout\\fragment_profile.xml"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines.xml",

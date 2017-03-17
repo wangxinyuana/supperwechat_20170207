@@ -28,12 +28,12 @@
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\drawable\\titlepop_item_selector.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\em_red_packet_chatto_bg.xml",
-        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\superwechat\\redpacketlibrary\\unspecified\\res\\drawable\\em_red_packet_chatto_bg.xml"
-    },
-    {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\drawable\\abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\em_red_packet_chatto_bg.xml",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\superwechat\\redpacketlibrary\\unspecified\\res\\drawable\\em_red_packet_chatto_bg.xml"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\em_chat_red_packet_selector.xml",
@@ -88,20 +88,28 @@
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\drawable\\tip_round_red_bg_shape.xml"
     },
     {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_text_dark.xml",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_text_dark.xml"
+    },
+    {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_update_button_cancel_bg_tap.xml",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\drawable\\umeng_update_button_cancel_bg_tap.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_update_button_cancel_bg_selector.xml",
-        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\drawable\\umeng_update_button_cancel_bg_selector.xml"
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_chat_image_selector.xml",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\drawable\\ease_chat_image_selector.xml"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_btn_cancel_pressed_shape.xml",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\drawable\\ease_btn_cancel_pressed_shape.xml"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_chat_image_selector.xml",
-        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\drawable\\ease_chat_image_selector.xml"
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_update_button_cancel_bg_selector.xml",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\drawable\\umeng_update_button_cancel_bg_selector.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_light.xml",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_text_light.xml"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\rp_btn_open_selector_unsolid.xml",
@@ -110,6 +118,10 @@
     {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_update_button_ok_bg_tap.xml",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\drawable\\umeng_update_button_ok_bg_tap.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_text_light.xml",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_text_light.xml"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\rp_shape_corner.xml",
@@ -144,12 +156,20 @@
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\drawable\\tab_find.xml"
     },
     {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_icon_light.xml",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_icon_light.xml"
+    },
+    {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\rp_shape_white_conner.xml",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\superwechat\\redpacketlibrary\\unspecified\\res\\drawable\\rp_shape_white_conner.xml"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\em_button_myprofile_selector.xml",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\drawable\\em_button_myprofile_selector.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark.xml",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_text_dark.xml"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\rp_btn_open_pressed_shape_unsolid.xml",
@@ -224,6 +244,10 @@
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\drawable\\umeng_update_button_close_bg_selector.xml"
     },
     {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_icon_dark.xml",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_icon_dark.xml"
+    },
+    {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\rp_btn_open_normal_shape_unsolid.xml",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\superwechat\\redpacketlibrary\\unspecified\\res\\drawable\\rp_btn_open_normal_shape_unsolid.xml"
     },
@@ -254,6 +278,10 @@
     {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_btn_blue_pressed_shape.xml",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\drawable\\ease_btn_blue_pressed_shape.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_light.xml",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_icon_light.xml"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\rp_btn_red_no_enable_shape.xml",
@@ -396,6 +424,10 @@
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\drawable\\em_call_hangup_bg.xml"
     },
     {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\default_hd_avatar.png",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\drawable\\default_hd_avatar.png"
+    },
+    {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\em_camera_switch_selector.xml",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\drawable\\em_camera_switch_selector.xml"
     },
@@ -506,6 +538,10 @@
     {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\em_btn_green_normal_shape.xml",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\drawable\\em_btn_green_normal_shape.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_dark.xml",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_icon_dark.xml"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable\\rp_btn_red_pressed_shape.xml",

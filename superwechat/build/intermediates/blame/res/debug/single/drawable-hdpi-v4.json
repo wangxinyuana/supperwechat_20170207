@@ -128,12 +128,12 @@
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\drawable-hdpi-v4\\ee_3.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_23.png",
-        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\drawable-hdpi-v4\\ee_23.png"
-    },
-    {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_29.png",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\drawable-hdpi-v4\\ee_29.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_23.png",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\drawable-hdpi-v4\\ee_23.png"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_019.gif",
@@ -408,12 +408,12 @@
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\drawable-hdpi-v4\\ease_chatting_biaoqing_btn_enable.png"
     },
     {
-        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_027.gif",
-        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\drawable-hdpi\\icon_027.gif"
-    },
-    {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_15.png",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\exploded-aar\\superwechat\\EaseUI\\unspecified\\res\\drawable-hdpi-v4\\ee_15.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_027.gif",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\drawable-hdpi\\icon_027.gif"
     },
     {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ease_chatto_voice_playing_f1.png",

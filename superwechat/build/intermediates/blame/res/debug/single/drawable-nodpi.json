@@ -6,5 +6,9 @@
     {
         "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi\\default_nor_avatar.png",
         "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\drawable-nodpi\\default_nor_avatar.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi\\qrcode.png",
+        "source": "D:\\AndroidStudioProjects\\SuperWeChat\\superwechat\\res\\drawable-nodpi\\qrcode.png"
     }
 ]

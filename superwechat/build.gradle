@@ -65,7 +65,22 @@ android {
         }
     }
 }
-
+/*android{
+    productFlavors{
+        xiaomi{
+            mainfesstPlaceholders=[UMENG_CHANNEL_VALUE:"xiaomi"]
+        }
+        _360 {
+            mainfesstPlaceholders=[UMENG_CHANNEL_VALUE:"_360"]
+        }
+        baidu{
+            mainfesstPlaceholders=[UMENG_CHANNEL_VALUE:"baidu"]
+        }
+        wandoujia{
+            mainfesstPlaceholders=[UMENG_CHANNEL_VALUE:"wandoujia"]
+        }
+    }
+}*/
 dependencies {
     compile project(':redpacketlibrary')
     compile project(':EaseUI')
@@ -81,4 +96,5 @@ dependencies {
     compile 'com.squareup.okio:okio:1.10.0'
     compile 'com.squareup.okhttp3:okhttp-urlconnection:3.4.1'
     compile 'com.google.code.gson:gson:2.7'
+
 }
